@@ -9,7 +9,14 @@ import { ButtonModule } from 'primeng/button';
 import { StyleClassModule } from 'primeng/styleclass';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
-
+import { StepsModule } from 'primeng/steps';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast';
+import {DialogModule} from 'primeng/dialog';
 @NgModule({
     imports: [
         CommonModule,
@@ -20,7 +27,15 @@ import { DashboardsRoutingModule } from './dashboard-routing.module';
         StyleClassModule,
         PanelMenuModule,
         ButtonModule,
-        DashboardsRoutingModule
+        DashboardsRoutingModule,
+        StepsModule,
+        RadioButtonModule,
+        DropdownModule,
+        InputNumberModule,
+        MessagesModule,
+        MessageModule,
+        ToastModule,
+        DialogModule
     ],
     declarations: [DashboardComponent]
 })

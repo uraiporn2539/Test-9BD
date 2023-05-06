@@ -1,239 +1,212 @@
-    <div class="grid">
-        <div class="col-12 lg:col-6 xl:col-3">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Orders</span>
-                        <div class="text-900 font-medium text-xl">152</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">24 new </span>
-                <span class="text-500">since last visit</span>
-            </div>
-        </div>
-        <div class="col-12 lg:col-6 xl:col-3">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Revenue</span>
-                        <div class="text-900 font-medium text-xl">$2.100</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-orange-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-map-marker text-orange-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">%52+ </span>
-                <span class="text-500">since last week</span>
-            </div>
-        </div>
-        <div class="col-12 lg:col-6 xl:col-3">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Customers</span>
-                        <div class="text-900 font-medium text-xl">28441</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-cyan-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-inbox text-cyan-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">520  </span>
-                <span class="text-500">newly registered</span>
-            </div>
-        </div>
-        <div class="col-12 lg:col-6 xl:col-3">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Comments</span>
-                        <div class="text-900 font-medium text-xl">152 Unread</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-purple-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-comment text-purple-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">85 </span>
-                <span class="text-500">responded</span>
-            </div>
-        </div>
-
-        <div class="col-12 xl:col-6">
-            <div class="card">
-                <h5>Recent Sales</h5>
-                <p-table [value]="products" [paginator]="true" [rows]="5" responsiveLayout="scroll">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>Image</th>
-                            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-                            <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
-                            <th>View</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-product>
-                        <tr>
-                            <td style="width: 15%; min-width: 5rem;">
-                                <img src="assets/demo/images/product/{{product.image}}" class="shadow-4" alt="{{product.name}}" width="50">
-                            </td>
-                            <td style="width: 35%; min-width: 7rem;">{{product.name}}</td>
-                            <td style="width: 35%; min-width: 8rem;">{{product.price | currency:'USD'}}</td>
-                            <td style="width: 15%;">
-                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button p-component p-button-text p-button-icon-only"></button>
-                            </td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
-            <div class="card">
-                <div class="flex justify-content-between align-items-center mb-5">
-                    <h5>Best Selling Products</h5>
-                    <div>
-                        <button pButton type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-plain" (click)="menu.toggle($event)"></button>
-                        <p-menu #menu [popup]="true" [model]="items"></p-menu>
-                    </div>
-                </div>
-                <ul class="list-none p-0 m-0">
-                    <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
-                        <div>
-                            <span class="text-900 font-medium mr-2 mb-1 md:mb-0">Space T-Shirt</span>
-                            <div class="mt-1 text-600">Clothing</div>
-                        </div>
-                        <div class="mt-2 md:mt-0 flex align-items-center">
-                            <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
-                                <div class="bg-orange-500 h-full" [ngStyle]="{width: '50%'}"></div>
-                            </div>
-                            <span class="text-orange-500 ml-3 font-medium">%50</span>
-                        </div>
-                    </li>
-                    <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
-                        <div>
-                            <span class="text-900 font-medium mr-2 mb-1 md:mb-0">Portal Sticker</span>
-                            <div class="mt-1 text-600">Accessories</div>
-                        </div>
-                        <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
-                            <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
-                                <div class="bg-cyan-500 h-full" [ngStyle]="{width: '16%'}"></div>
-                            </div>
-                            <span class="text-cyan-500 ml-3 font-medium">%16</span>
-                        </div>
-                    </li>
-                    <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
-                        <div>
-                            <span class="text-900 font-medium mr-2 mb-1 md:mb-0">Supernova Sticker</span>
-                            <div class="mt-1 text-600">Accessories</div>
-                        </div>
-                        <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
-                            <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
-                                <div class="bg-pink-500 h-full" [ngStyle]="{width: '67%'}"></div>
-                            </div>
-                            <span class="text-pink-500 ml-3 font-medium">%67</span>
-                        </div>
-                    </li>
-                    <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
-                        <div>
-                            <span class="text-900 font-medium mr-2 mb-1 md:mb-0">Wonders Notebook</span>
-                            <div class="mt-1 text-600">Office</div>
-                        </div>
-                        <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
-                            <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
-                                <div class="bg-green-500 h-full" [ngStyle]="{width: '35%'}"></div>
-                            </div>
-                            <span class="text-green-500 ml-3 font-medium">%35</span>
-                        </div>
-                    </li>
-                    <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
-                        <div>
-                            <span class="text-900 font-medium mr-2 mb-1 md:mb-0">Mat Black Case</span>
-                            <div class="mt-1 text-600">Accessories</div>
-                        </div>
-                        <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
-                            <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
-                                <div class="bg-purple-500 h-full" [ngStyle]="{width: '75%'}"></div>
-                            </div>
-                            <span class="text-purple-500 ml-3 font-medium">%75</span>
-                        </div>
-                    </li>
-                    <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
-                        <div>
-                            <span class="text-900 font-medium mr-2 mb-1 md:mb-0">Robots T-Shirt</span>
-                            <div class="mt-1 text-600">Clothing</div>
-                        </div>
-                        <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
-                            <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
-                                <div class="bg-teal-500 h-full" [ngStyle]="{width: '40%'}"></div>
-                            </div>
-                            <span class="text-teal-500 ml-3 font-medium">%40</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-12 xl:col-6">
-            <div class="card">
-                <h5>Sales Overview</h5>
-                <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
-            </div>
-
-            <div class="card">
-                <div class="flex align-items-center justify-content-between mb-4">
-                    <h5>Notifications</h5>
-                    <div>
-                        <button pButton type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-plain" (click)="menu.toggle($event)"></button>
-                        <p-menu #menu [popup]="true" [model]="items"></p-menu>
-                    </div>
-                </div>
-
-                <span class="block text-600 font-medium mb-3">TODAY</span>
-                <ul class="p-0 mx-0 mt-0 mb-4 list-none">
-                    <li class="flex align-items-center py-2 border-bottom-1 surface-border">
-                        <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
-                            <i class="pi pi-dollar text-xl text-blue-500"></i>
-                        </div>
-                        <span class="text-900 line-height-3">Richard Jones
-                    <span class="text-700"> has purchased a blue t-shirt for <span class="text-blue-500">79$</span></span>
-                </span>
-                    </li>
-                    <li class="flex align-items-center py-2">
-                        <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-orange-100 border-circle mr-3 flex-shrink-0">
-                            <i class="pi pi-download text-xl text-orange-500"></i>
-                        </div>
-                        <span class="text-700 line-height-3">Your request for withdrawal of <span class="text-blue-500 font-medium">2500$</span> has been initiated.</span>
-                    </li>
-                </ul>
-
-                <span class="block text-600 font-medium mb-3">YESTERDAY</span>
-                <ul class="p-0 m-0 list-none">
-                    <li class="flex align-items-center py-2 border-bottom-1 surface-border">
-                        <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
-                            <i class="pi pi-dollar text-xl text-blue-500"></i>
-                        </div>
-                        <span class="text-900 line-height-3">Keyser Wick
-                    <span class="text-700"> has purchased a black jacket for <span class="text-blue-500">59$</span></span>
-                </span>
-                    </li>
-                    <li class="flex align-items-center py-2 border-bottom-1 surface-border">
-                        <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-pink-100 border-circle mr-3 flex-shrink-0">
-                            <i class="pi pi-question text-xl text-pink-500"></i>
-                        </div>
-                        <span class="text-900 line-height-3">Jane Davis<span class="text-700"> has posted a new questions about your product.</span></span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="px-4 py-5 shadow-2 flex flex-column md:flex-row md:align-items-center justify-content-between mb-3" [ngStyle]="{borderRadius: '1rem', background: 'linear-gradient(0deg, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0.5)), linear-gradient(92.54deg, #1C80CF 47.88%, #FFFFFF 100.01%)'}">
-           <div>
-               <div class="text-blue-100 font-medium text-xl mt-2 mb-3">TAKE THE NEXT STEP</div>
-               <div class="text-white font-medium text-5xl">Try PrimeBlocks</div>
-           </div>
-           <div class="mt-4 mr-auto md:mt-0 md:mr-0">
-               <a target="_blank" href="https://www.primefaces.org/primeblocks-ng" class="p-button font-bold px-5 py-3 p-button-warning p-button-rounded p-button-raised">
-                   Get Started
-               </a>
-           </div>
-        </div>
+<div class="content" role="main">
+    <h1 >Submit Tax Filing</h1>
+    <div class="steps">
+        <p-steps [model]="items" [readonly]="true" [activeIndex]="activeIndex" ></p-steps>
     </div>
 </div>
+<div class="grid">
+        <!-- <div class="flex align-items-center justify-content-center mb-4">
+            <h5 style="font-size:3vw;">Submit Tax Filing</h5>
+        </div>
+        <div class="flex align-items-center justify-content-center mb-4">
+            <p-steps [model]="items" [readonly]="true" [activeIndex]="activeIndex" class="steps"></p-steps>
+        </div> -->
+            <div class="col-12 xl:col-12 lg:col-12 md:col-12 sm:col-12 xs:col-6" *ngIf="pageOn1" >
+            <div class="card ">
+                <li class="flex align-items-center py-2 border-bottom-1 surface-border" style="margin-top: 20px;">
+                    <h5  style="font-weight: bold; ">1.Tax Filing Detail</h5>
+                </li>
+                
+               
+                
+                <ul class="p-0 mx-0 mt-0 mb-4 list-none">
+                    <li class="flex align-items-center py-2 ">
+                        <div class="row mx-0">
+                            <div class="col-12 pl-0">
+                                <span style="font-weight: bold;"> Type of Filing <span style="color: red; font-weight: bold;"> * </span></span>
+                            </div>
+                            <div class="col pl-0">
+                                <p-radioButton name="filingType" value="0" [(ngModel)]="filingType" inputId="0"  binary="true" (onClick)="clickFiling0()" [class]="invalidradio"></p-radioButton>
+                                <label for="0" style="margin-left: 5px;">Ordinary Filing <i class="pi pi-question-circle"></i></label>
+                                
+                                <p-radioButton name="filingType" value="1" [(ngModel)]="filingType" inputId="1" class="rdo" (onClick)="clickFiling1()" [class]="invalidradio"></p-radioButton>
+                                <label for="1" style="margin-left: 5px;">Additional Filing <i class="pi pi-question-circle"></i></label>
+                            </div>
+                        </div>
+                
+                    </li>
+                    <li class="flex align-items-center py-2">
+                    <div class="grid">
+                        <div class="grid-items">
+                            <div class="row mx-0">
+                                <div class="col-12 pl-0">
+                                    <span style="font-weight: bold; margin-left: 10px;"> VAT Month <span style="color: red; font-weight: bold;"> * </span></span>
+                                </div>
+                                <div class="col-12 pl-0">
+                                    <p-dropdown [options]="monthchoose" [(ngModel)]="month" optionLabel="name" class="col-2" (onChange)="changemonth($event)" [class]="invalidmonth" placeholder="Select month"></p-dropdown>
+                                    <p-dropdown [options]="yearchoose" [(ngModel)]="year" optionLabel="name" class="col-6" (onChange)="changeyear($event)" [class]="invalidyear" placeholder="Select year"></p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-items" *ngIf="typeshow">
+                            <div class="row mx-0">
+                                <div class="col-12 pl-0">
+                                    <span style="font-weight: bold;"> Type <span style="color: red; font-weight: bold;"> * </span></span>
+                                </div>
+                                <div class="col-12 pl-0">
+                                    <p-dropdown [options]="typechoose" [(ngModel)]="type" optionLabel="name" class="col-2" (onChange)="changetype($event)" [class]="invalidtype" placeholder="Select type"></p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                    </li>
+                    <div class="flex align-items-center justify-content-between mb-4" style="margin-top: 10px;">
+                        <h5  style="font-weight: bold; ">2.Tax Computation</h5>
+                        <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" >
+                            <i class="pi pi-ellipsis-v"></i>
+                        </button>
+                        <span class="block text-600 font-medium mb-3" class="View"><u>View Exchange Rate</u></span>
+                    </div>
+                    <li class="flex align-items-center py-2 border-bottom-1 surface-border" style="margin-top: -20px;">
+                    </li>
+                    
+                </ul>
+                
+                <span style="font-weight: bold;">Provide total value taxable electronic service<span style="color: red; font-weight: bold;"> * </span></span>
+                <ul class="p-0 m-0 list-none" >
+               
+                    <li class="flex align-items-center py-2 flex-container">
+                        
+                       
+                            <span class="item" style="margin-top: 10px;"> 1. Total value of taxable electronic service exclusive of VAT</span>
+                            <p-inputNumber [(ngModel)]="saleAmount" mode="decimal" (onInput)="onInput($event)" [useGrouping]="inputId" (onBlur)="onBlur($event)" [minFractionDigits]="2"  [inputStyle]="{'text-align': 'right'}" placeholder="THB"  [class]="invalidnum"></p-inputNumber>
+                  
+                    </li>
+                    <li class="flex align-items-center py-2 flex-container">
+                        
+                            <span class="item" style="margin-top: 10px;"> 2. Total VAT to be remitted (7% of 1.)</span>
+                            <p-inputNumber [(ngModel)]="taxAmount"  mode="decimal" (onFocus)="onInputS($event)" (onInput)="onInputS($event)" [styleClass]="class"  [showButtons]="showicon" [useGrouping]="inputIdS" (onBlur)="onBlurS($event)" [minFractionDigits]="2" [styleClass]="class" [inputStyle]="{'text-align': 'right'}" placeholder="THB" [min]="min" [max]="max" inputId="minmax" [class]="invalidnum"></p-inputNumber>
+                       
+                    </li>
+                </ul>
+                <div style="margin-top: 10px;" *ngIf="showincase">
+                <span style="font-weight: bold; ">In Case late filling and payment, or additional filling</span>
+                <ul class="p-0 m-0 list-none" >
+               
+                    <li class="flex align-items-center py-2 flex-container">
+                        
+                        
+                            <span class="item" style="margin-top: 10px;"> 3. Surchange  <i class="pi pi-question-circle"></i></span>
+                            <p-inputNumber [(ngModel)]="surcharge" mode="decimal" [minFractionDigits]="2"  [inputStyle]="{'text-align': 'right'}" placeholder="THB" [readonly]="true" [disabled]="true"></p-inputNumber>
+                      
+                    </li>
+                    <li class="flex align-items-center py-2 flex-container">
+                       
+                            <span class="item"> 4. Penalty <i class="pi pi-question-circle"></i></span>
+                            <p-inputNumber [(ngModel)]="penalty" mode="decimal" [minFractionDigits]="2" [inputStyle]="{'text-align': 'right'}" placeholder="THB" [readonly]="true" [disabled]="true" style="float:right; margin-top: 20px; margin-bottom: 20px;"></p-inputNumber>
+                       
+                    </li>
+                    <li class="flex align-items-center py-2 flex-container">
+                        
+                        
+                            <span class="item" >  5. Total amount of VAT,surrcharge,and penelty to be remitted (2.+3.+4.)  </span>
+                                <p-inputNumber [(ngModel)]="totalAmount" mode="decimal" [minFractionDigits]="2" class="rightS2" [inputStyle]="{'text-align': 'right'}" placeholder="THB" [readonly]="true" [disabled]="true"></p-inputNumber>
+                      
+                    </li>
+                </ul>
+            </div>
+            </div>
 
+         
+            </div>
+            <div class="col-12 xl:col-12 lg:col-12 md:col-12 sm:col-12 xs:col-6" *ngIf="pageOn2" >
+                <div class="card ">
+                    <li class="flex align-items-center py-2 border-bottom-1 surface-border" style="margin-top: 20px;">
+                        <h5  style="font-weight: bold; ">Tax Filling Detail</h5>
+                    </li>
+                   
+                    <ul class="p-0 mx-0 mt-0 mb-4 list-none">
+                        <li class="flex align-items-center py-2 ">
+                            <div class="row mx-0">
+                                <div class="col-12 pl-0">
+                                    <span style="font-weight: bold;"> Type of Filing </span> <span style="margin-left: 10px;">{{filingType_S }}</span>
+                                </div>
+                                <div class="col-12 pl-0">
+                                    <span style="font-weight: bold;"> VAT Month </span> <span style="margin-left: 10px;">{{monthS}}</span> <span style="margin-left: 10px;">{{yearS}}</span>
+                                </div>
+                                
+                            </div>
+                    
+                        </li>
+                       
+                        <div class="flex align-items-center justify-content-between mb-4" style="margin-top: 10px;">
+                            <h5  style="font-weight: bold; ">Tax Computation</h5>
+                        </div>
+                        <li class="flex align-items-center py-2 border-bottom-1 surface-border" style="margin-top: -20px;">
+                        </li>
+                        
+                    </ul>
+                  
+                    <ul class="p-0 m-0 list-none" >
+                   
+                        <li class="flex align-items-center py-2 flex-container">
+                                <span class="item" style="margin-top: 10px; font-weight: bold;"> Total value of taxable electronic service exclusive of VAT</span>
+                                <span > {{saleAmountS}} THB</span>
+                      
+                        </li>
+                        <li class="flex align-items-center py-2 flex-container">
+                            <span class="item" style="margin-top: 10px; font-weight: bold;"> Total VAT to be remitted</span>
+                            <span > {{taxAmountS}} THB</span>
+                         </li>
+                         <li class="flex align-items-center py-2 flex-container">
+                            <span class="item" style="margin-top: 10px; ">(7% of Total value of taxable electronic exclusive of VAT)</span>
+                           
+                         </li>
+                         <li class="flex align-items-center py-2 flex-container" *ngIf="showincase">
+                            <span class="item" style="margin-top: 10px; font-weight: bold;"> Total surcharge</span>
+                            <span > {{surchargeS}} THB</span>
+                         </li>
+                         <li class="flex align-items-center py-2 flex-container" *ngIf="showincase">
+                            <span class="item" style="margin-top: 10px; font-weight: bold;"> Total penalty</span>
+                            <span > {{penaltyS}} THB</span>
+                         </li>
+                         <li class="flex align-items-center py-2 flex-container">
+                            <span class="item" style="margin-top: 10px; font-weight: bold;"> Total Amount Payable</span>
+                            <span style="font-size: 20px; font-weight: bold;"> {{totalAmountS}} THB</span>
+                         </li>
+                         <div class="flex align-items-center justify-content-between mb-4" style="margin-top: 20px;">
+                            <h5  style="font-weight: bold; ">Declaration</h5>
+                        </div>
+                        <li class="flex align-items-center py-2 border-bottom-1 surface-border" style="margin-top: -40px;">
+                        </li>
+                        <li class="flex align-items-center py-2 flex-container">
+                            <span>I hereby certify that information given above arw true and correct and agree to be bound by such information</span>
+                           
+                        </li>
+                    </ul>
+                
+                </div>
+    
+             
+                </div>
+            
+</div>
+
+<div class="layout-footer" *ngIf="cfcase1">
+    <div class="row mx-0">
+        <button pButton pRipple type="button" label="Back" class="back" (click)="back()"></button>
+        <button pButton pRipple type="button" label="Next" class="next" (click)="next()"></button>
+    </div>
+</div>
+<div class="layout-footerS" *ngIf="cfcase2">
+    <div class="row mx-0">
+     
+        <button pButton pRipple type="button" label="Confirm and Submit" class="next" (click)="confirm()"></button>
+    </div>
+</div>
+<p-toast></p-toast>
+<p-dialog header="taxData" [(visible)]="taxData">
+    <span>{{JsonStr}}</span>
+</p-dialog>

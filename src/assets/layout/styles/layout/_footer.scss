@@ -1,8 +1,32 @@
 .layout-footer {
     transition: margin-left $transitionDuration;
     display: flex;
+    margin-left: 25%;
+    // align-items: ;
+    // justify-content: center;
+   
+    padding-top: 1rem;
+ 
+}
+.layout-footerS {
+    transition: margin-left $transitionDuration;
+    display: flex;
+    // margin-left: 40%;
     align-items: center;
     justify-content: center;
+   
     padding-top: 1rem;
-    border-top: 1px solid var(--surface-border);
+ 
+}
+@media (max-width: 860px) {
+    .layout-footer {
+        transition: margin-left $transitionDuration;
+        display: flex;
+        margin-left: 5%;
+        // align-items: ;
+        // justify-content: center;
+       
+        padding-top: 1rem;
+     
+    }
 }
