@@ -1,0 +1,135 @@
+.card {
+    margin-left: 25%;      
+    margin-right: 25%;
+    width: auto;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.steps {
+    width: 30%;
+    margin-top: 30px;
+    // justify-content: center;
+    // align-items: center;
+ }
+ .grid{
+    // margin-bottom: 3rem;
+    // display: grid;
+    
+    grid-template-columns: repeat(2, 1fr);
+ }
+
+ .layout-topbar-menu-button {
+    display: none;
+    
+    i {
+        font-size: 1.25rem;
+    }
+}
+.flex-container {
+    display: flex;
+  
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .item:nth-child(2n) {
+    width: 100%;
+    text-align: right;
+   
+  }
+  .rdo{
+    margin-left: 20px;
+  }
+  .back{
+    background-color: white; 
+    color: black; 
+    border-color: black;
+  }
+  .next{
+    background-color: black; 
+    color: white; 
+    border-color: black;
+    margin-left: 5px;
+  }
+  .content {
+    display: flex;
+    // margin: 82px auto 32px;
+    padding: 0 16px;
+    
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+  }
+@media (max-width: 1051px) {
+    .next{
+        background-color: black; 
+        color: white; 
+        border-color: black;
+        margin-left: 0px;
+      }
+}
+ @media (max-width: 991px) {
+    .steps {
+        width: auto;
+        margin-top: 30px;
+        // justify-content: center;
+        // align-items: center;
+     }
+     .input{
+      width: 50px;
+     }
+     .grid{
+        // margin-bottom: 3rem;
+        // display: grid;
+        
+        grid-template-columns: repeat(1, 1fr);
+     }
+     .layout-topbar-menu-button {
+        display: inline-flex;
+        margin-left: 0;
+        order: 3;
+    }
+    .View{
+        display: none;
+    }
+    .next{
+        background-color: black; 
+        color: white; 
+        border-color: black;
+        margin-left: 0px;
+      }
+    
+ }
+ @media (max-width: 860px) {
+  .card {
+    margin-left: 5%;      
+    margin-right: 5%;
+    width: auto;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+.next{
+  background-color: black; 
+  color: white; 
+  border-color: black;
+  margin-left: 5px;
+}
+ }
+ @media (max-width: 550px) {
+  .card {
+    margin-left: 5%;      
+    margin-right: 5%;
+    width: auto;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.next{
+  background-color: black; 
+  color: white; 
+  border-color: black;
+  margin-left: 5px;
+}
+  
+}
