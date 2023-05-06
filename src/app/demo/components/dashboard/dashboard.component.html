@@ -99,20 +99,20 @@
                         
                         
                             <span class="item" style="margin-top: 10px;"> 3. Surchange  <i class="pi pi-question-circle"></i></span>
-                            <p-inputNumber [(ngModel)]="surcharge" mode="decimal" [minFractionDigits]="2"  [inputStyle]="{'text-align': 'right'}" placeholder="THB" [readonly]="true" [disabled]="true"></p-inputNumber>
+                            <p-inputNumber [(ngModel)]="surcharge" mode="decimal" [minFractionDigits]="2"  [inputStyle]="{'text-align': 'right'}" placeholder="0.00 THB" [readonly]="true" [disabled]="true"></p-inputNumber>
                       
                     </li>
                     <li class="flex align-items-center py-2 flex-container">
                        
                             <span class="item"> 4. Penalty <i class="pi pi-question-circle"></i></span>
-                            <p-inputNumber [(ngModel)]="penalty" mode="decimal" [minFractionDigits]="2" [inputStyle]="{'text-align': 'right'}" placeholder="THB" [readonly]="true" [disabled]="true" style="float:right; margin-top: 20px; margin-bottom: 20px;"></p-inputNumber>
+                            <p-inputNumber [(ngModel)]="penalty" mode="decimal" [minFractionDigits]="2" [inputStyle]="{'text-align': 'right'}" placeholder="0.00  THB" [readonly]="true" [disabled]="true" style="float:right; margin-top: 20px; margin-bottom: 20px;"></p-inputNumber>
                        
                     </li>
                     <li class="flex align-items-center py-2 flex-container">
                         
                         
                             <span class="item" >  5. Total amount of VAT,surrcharge,and penelty to be remitted (2.+3.+4.)  </span>
-                                <p-inputNumber [(ngModel)]="totalAmount" mode="decimal" [minFractionDigits]="2" class="rightS2" [inputStyle]="{'text-align': 'right'}" placeholder="THB" [readonly]="true" [disabled]="true"></p-inputNumber>
+                                <p-inputNumber [(ngModel)]="totalAmount" mode="decimal" [minFractionDigits]="2" class="rightS2" [inputStyle]="{'text-align': 'right'}" placeholder="0.00 THB" [readonly]="true" [disabled]="true"></p-inputNumber>
                       
                     </li>
                 </ul>
@@ -209,4 +209,7 @@
 <p-toast></p-toast>
 <p-dialog header="taxData" [(visible)]="taxData">
     <span>{{JsonStr}}</span>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="back()" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
 </p-dialog>
