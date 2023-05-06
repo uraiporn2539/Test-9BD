@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
        
         this.items = [
             {label: 'Input Detail'},
-            {label: 'Review & COnfirm'}
+            {label: 'Review & Confirm'}
         ];
         this.filingTypeS = [
             {name: 'Ordinary Filing', value:0},
