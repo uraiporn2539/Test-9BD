@@ -161,7 +161,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
       }
       next(){
-        console.log(this.surcharge)
         if (this.filingType != undefined){
           this.invalidradio = ""
           if (this.filingType == '0'){
@@ -176,7 +175,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.taxAmountS = this.numberWithCommas(this.taxAmountS)
               this.surchargeS = this.numberWithCommas(this.surchargeS)
               this.penaltyS = this.numberWithCommas(this.penaltyS)
-              this.totalAmountS = this.numberWithCommas(this.totalAmountS)
+              this.totalAmountS = this.numberWithCommas(this.totalAmountS.toFixed(2))
             } else {
               if (this.month == undefined){
                 this.invalidmonth = "ng-invalid ng-dirty"
@@ -199,7 +198,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.taxAmountS = this.numberWithCommas(this.taxAmountS)
               this.surchargeS = this.numberWithCommas(this.surchargeS)
               this.penaltyS = this.numberWithCommas(this.penaltyS)
-              this.totalAmountS = this.numberWithCommas(this.totalAmountS)
+              this.totalAmountS = this.numberWithCommas(this.totalAmountS.toFixed(2))
             } else {
               if (this.month == undefined){
                 this.invalidmonth = "ng-invalid ng-dirty"
@@ -227,7 +226,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.taxAmountS = this.numberWithCommas(this.taxAmountS)
               this.surchargeS = this.numberWithCommas(this.surchargeS)
               this.penaltyS = this.numberWithCommas(this.penaltyS)
-              this.totalAmountS = this.numberWithCommas(this.totalAmountS)
+              this.totalAmountS = this.numberWithCommas(this.totalAmountS.toFixed(2))
           } else {
             if (this.month == undefined){
               this.invalidmonth = "ng-invalid ng-dirty"
@@ -284,8 +283,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
           this.penaltyS = 0.00
         }
        
-        this.totalAmount = this.taxAmountS + this.surcharge + this.penalty;
-        this.totalAmountS = this.taxAmountS + this.surcharge + this.penalty;
+        this.totalAmount = Number((this.taxAmountS + this.surcharge + this.penalty).toFixed(2));
+        this.totalAmountS = Number((this.taxAmountS + this.surcharge + this.penalty).toFixed(2));
         this.min = this.taxAmount - 20.00
         this.max = this.taxAmount + 20.00
       }
