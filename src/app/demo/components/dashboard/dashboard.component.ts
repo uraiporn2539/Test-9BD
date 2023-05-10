@@ -161,6 +161,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
       }
       next(){
+        console.log(this.surcharge)
         if (this.filingType != undefined){
           this.invalidradio = ""
           if (this.filingType == '0'){
@@ -272,8 +273,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.taxAmountS = Number(taxAmount);
         }
         if (this.filingType == '0'){
-          this.surcharge = Number((this.saleAmount * 0.1).toFixed(2))
-          this.surchargeS = Number((this.saleAmount * 0.1).toFixed(2))
+          this.surcharge = Number((this.taxAmount * 0.1).toFixed(2))
+          this.surchargeS = Number((this.taxAmountS * 0.1).toFixed(2))
           this.penalty = 200.00
           this.penaltyS = 200.00
         } else {
