@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
        
         this.items = [
             {label: 'Input Detail'},
-            {label: 'Review & COnfirm'}
+            {label: 'Review & Confirm'}
         ];
         this.filingTypeS = [
             {name: 'Ordinary Filing', value:0},
@@ -105,7 +105,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         var currentDate = new Date();
         var fullmonth = "0" + currentDate.getMonth().toString()
         var month = this.monthchoose.findIndex(data => data.value == fullmonth)
-        var indexmonth = month+1
         this.monthchoose.forEach(function (data, i)  {
           if (i > month+1){
            data.disabled = true;
@@ -125,7 +124,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.invalidyear = ""
     }
     changetype(event:any){
-      this.yearS = event.value.name
+      this.type = event.value.name
       this.invalidtype = ""
     }
     clickFiling1(){
@@ -133,12 +132,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.typeshow = true;
         this.filingType_S = 'Additional Filing'
         this.invalidradio = ""
+        this.penalty = 0
+        this.surcharge = 0
       }
       clickFiling0(){
         this.showincase = false;
         this.typeshow = false;
         this.filingType_S = 'Ordinary Filing'
         this.invalidradio = ""
+        this.penalty = 200
       }
       onInput(event:any) {
         this.inputId = false
@@ -166,7 +168,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.taxAmountS = this.numberWithCommas(this.taxAmountS)
               this.surchargeS = this.numberWithCommas(this.surchargeS)
               this.penaltyS = this.numberWithCommas(this.penaltyS)
-              this.totalAmountS = this.numberWithCommas(this.totalAmountS)
+              this.totalAmountS = this.numberWithCommas(this.totalAmountS.toFixed(2))
             } else {
               if (this.month == undefined){
                 this.invalidmonth = "ng-invalid ng-dirty"
@@ -190,7 +192,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.taxAmountS = this.numberWithCommas(this.taxAmountS)
               this.surchargeS = this.numberWithCommas(this.surchargeS)
               this.penaltyS = this.numberWithCommas(this.penaltyS)
-              this.totalAmountS = this.numberWithCommas(this.totalAmountS)
+              this.totalAmountS = this.numberWithCommas(this.totalAmountS.toFixed(2))
             } else {
               if (this.month == undefined){
                 this.invalidmonth = "ng-invalid ng-dirty"
@@ -219,7 +221,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.taxAmountS = this.numberWithCommas(this.taxAmountS)
               this.surchargeS = this.numberWithCommas(this.surchargeS)
               this.penaltyS = this.numberWithCommas(this.penaltyS)
-              this.totalAmountS = this.numberWithCommas(this.totalAmountS)
+              this.totalAmountS = this.numberWithCommas(this.totalAmountS.toFixed(2))
           } else {
             if (this.month == undefined){
               this.invalidmonth = "ng-invalid ng-dirty"
@@ -238,6 +240,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.activeIndex = 0
         this.pageOn2 = false;
         this.pageOn1 = true;
+        this.taxData = false;
+        window.location.reload();
       }
       confirm(){
         this.taxData = true;
@@ -258,16 +262,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
       onBlur(event:any){
         this.inputId = true
-        this.saleAmount = Number(this.saleAmount.toFixed(2))
-        var taxAmount = (this.saleAmount * 0.07).toFixed(2)
+        if (this.saleAmount != undefined){
+          var taxAmount = (this.saleAmount * 0.07).toFixed(2)
         this.taxAmount = Number(taxAmount);
         this.taxAmountS = Number(taxAmount);
-        this.surcharge = Number((this.saleAmount * 0.1).toFixed(2))
-        this.surchargeS = Number((this.saleAmount * 0.1).toFixed(2))
-        this.penalty = 200.00
-        this.penaltyS = 200.00
-        this.totalAmount = this.taxAmountS + this.surcharge + this.penalty;
-        this.totalAmountS = this.taxAmountS + this.surcharge + this.penalty;
+        }
+        if (this.filingType == '0'){
+          this.surcharge = Number((this.taxAmount * 0.1).toFixed(2))
+          this.surchargeS = Number((this.taxAmountS * 0.1).toFixed(2))
+          this.penalty = 200.00
+          this.penaltyS = 200.00
+        } else {
+          this.surcharge = 0.00
+          this.surchargeS = 0.00
+          this.penalty = 0.00
+          this.penaltyS = 0.00
+        }
+       
+        this.totalAmount = Number((this.taxAmountS + this.surcharge + this.penalty).toFixed(2));
+        this.totalAmountS = Number((this.taxAmountS + this.surcharge + this.penalty).toFixed(2));
         this.min = this.taxAmount - 20.00
         this.max = this.taxAmount + 20.00
       }
