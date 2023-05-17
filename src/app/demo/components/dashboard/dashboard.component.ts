@@ -290,7 +290,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             'Total value of taxable electronic service exclusive of VAT':
                 this.saleAmount,
             'Total VAT to be remitted': this.taxAmount,
-            'Total Amount Payable': this.totalAmount,
+            'Total Amount Payable': this.totalAmountS,
         };
         var objS = {
             'Total value of taxable electronic service exclusive of VAT':
@@ -298,7 +298,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             'Total VAT to be remitted': this.taxAmount,
             'Total surcharge': this.surcharge,
             'Total penalty': this.penalty,
-            'Total Amount Payable': this.totalAmount,
+            'Total Amount Payable': this.totalAmountS,
         };
         if (this.filingType == '0') {
             this.JsonStr = JSON.stringify(obj);
