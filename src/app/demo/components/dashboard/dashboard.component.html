@@ -87,7 +87,7 @@
                     <li class="flex align-items-center py-2 flex-container">
                         
                             <span class="item" style="margin-top: 10px;"> 2. Total VAT to be remitted (7% of 1.)</span>
-                            <p-inputNumber [(ngModel)]="taxAmount"  mode="decimal" (onFocus)="onInputS($event)" (onInput)="onInputS($event)" [styleClass]="class"  [showButtons]="showicon" [useGrouping]="inputIdS" (onBlur)="onBlurS($event)" [minFractionDigits]="2" [styleClass]="class" [inputStyle]="{'text-align': 'right'}" placeholder="THB" [min]="min" [max]="max" inputId="minmax" [class]="invalidnum"></p-inputNumber>
+                            <p-inputNumber [(ngModel)]="taxAmount"  mode="decimal" (onFocus)="onInputS($event)" (onInput)="onInputS($event)" [styleClass]="class"  [useGrouping]="inputIdS" (onBlur)="onBlurS($event)" [minFractionDigits]="2" [styleClass]="class" [inputStyle]="{'text-align': 'right'}" placeholder="THB"  inputId="minmax" [class]="invalidnum2"></p-inputNumber>
                        
                     </li>
                 </ul>

@@ -58,6 +58,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     invalidyear:string;
     invalidtype:string;
     invalidnum:string;
+    invalidnum2:string;
     taxData:boolean ;
     JsonStr:string;
     constructor( private messageService: MessageService,) {
@@ -106,16 +107,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
         var month = this.monthchoose.findIndex(data => data.value == fullmonth)
         var indexmonth = month+1
         this.monthchoose.forEach(function (data, i)  {
-          if (i < month+1){
+          if (i > month+1){
            data.disabled = true;
           }
          })
-        // this.month = this.monthchoose[indexmonth]
-        // this.year = this.yearchoose[0]
-        // this.type = this.typechoose[0]
-      
-       
-
+    
     }
     numberWithCommas(x:any) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -152,11 +148,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.inputIdS = false
         this.class = "input-styling"
         this.showicon = true;
-        this.invalidnum = ""
-        if (this.taxAmount == this.max || this.taxAmount == this.min){
-
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Tax.' });
-        }
+        this.invalidnum2 = ""
+        
       }
       next(){
         if (this.filingType != undefined){
@@ -182,6 +175,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 this.invalidyear = "ng-invalid ng-dirty"
               }
               this.invalidnum = "ng-invalid ng-dirty"
+              this.invalidnum2 = "ng-invalid ng-dirty"
               this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Data.' });
             }
           } else {
@@ -208,6 +202,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 this.invalidtype = "ng-invalid ng-dirty"
               }
               this.invalidnum = "ng-invalid ng-dirty"
+              this.invalidnum2 = "ng-invalid ng-dirty"
               this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Data.' });
             }
           }
@@ -233,6 +228,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               this.invalidyear = "ng-invalid ng-dirty"
             }
             this.invalidnum = "ng-invalid ng-dirty"
+            this.invalidnum2 = "ng-invalid ng-dirty"
             this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Data.' });
           }
         }
@@ -262,6 +258,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
       onBlur(event:any){
         this.inputId = true
+        this.saleAmount = Number(this.saleAmount.toFixed(2))
         var taxAmount = (this.saleAmount * 0.07).toFixed(2)
         this.taxAmount = Number(taxAmount);
         this.taxAmountS = Number(taxAmount);
@@ -276,9 +273,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
       onBlurS(event:any){
         this.showicon = false;
+        this.taxAmount = Number(this.taxAmount.toFixed(2))
+        this.inputIdS = true
         this.class = ""
         this.max = this.taxAmountS + 20.00;
         this.min = this.taxAmountS - 20.00
+        if (this.taxAmount > this.max || this.taxAmount < this.min){
+          this.invalidnum2 = "ng-invalid ng-dirty"
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Tax.' });
+        }
       }
    
 
