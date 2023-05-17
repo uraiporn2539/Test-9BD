@@ -81,15 +81,19 @@
                         
                        
                             <span class="item" style="margin-top: 10px;"> 1. Total value of taxable electronic service exclusive of VAT</span>
-                            <p-inputNumber [(ngModel)]="saleAmount" mode="decimal" (onInput)="onInput($event)" [useGrouping]="inputId" (onBlur)="onBlur($event)" [minFractionDigits]="2"  [inputStyle]="{'text-align': 'right'}" placeholder="THB"  [class]="invalidnum"></p-inputNumber>
+                            <p-inputNumber [(ngModel)]="saleAmount" mode="decimal"  (onFocus)="onInput($event)" (onInput)="onInput($event)" [useGrouping]="inputId" (onBlur)="onBlur($event)" [minFractionDigits]="2"  [inputStyle]="{'text-align': 'right'}" placeholder="THB"  [class]="invalidnum"></p-inputNumber>
                   
                     </li>
                     <li class="flex align-items-center py-2 flex-container">
                         
                             <span class="item" style="margin-top: 10px;"> 2. Total VAT to be remitted (7% of 1.)</span>
                             <p-inputNumber [(ngModel)]="taxAmount"  mode="decimal" (onFocus)="onInputS($event)" (onInput)="onInputS($event)" [styleClass]="class"  [useGrouping]="inputIdS" (onBlur)="onBlurS($event)" [minFractionDigits]="2" [styleClass]="class" [inputStyle]="{'text-align': 'right'}" placeholder="THB"  inputId="minmax" [class]="invalidnum2"></p-inputNumber>
-                       
+                           
                     </li>
+                    <li class="flex align-items-center py-2 flex-container" *ngIf="showtaxinvalid">
+                        <span class="item"></span>
+                        <span style="color: red;">Invalid Tax.</span>
+                </li>
                 </ul>
                 <div style="margin-top: 10px;" *ngIf="showincase">
                 <span style="font-weight: bold; ">In Case late filling and payment, or additional filling</span>
