@@ -126,7 +126,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.filingType_S = 'Additional Filing';
         this.invalidradio = '';
         this.penalty = 0;
+        this.penaltyS = 0;
         this.surcharge = 0;
+        this.surchargeS = 0;
         this.totalAmount = Number(
             (this.taxAmountS + this.surcharge + this.penalty).toFixed(2)
         );
@@ -171,6 +173,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                     this.saleAmount != undefined &&
                     this.taxAmount != undefined
                 ) {
+                    this.filingType_S = 'Ordinary Filing'
                     this.activeIndex = 1;
                     this.pageOn2 = true;
                     this.pageOn1 = false;
@@ -200,6 +203,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                     });
                 }
             } else {
+              this.filingType_S = 'Additional Filing'
                 if (
                     this.month != undefined &&
                     this.year != undefined &&
